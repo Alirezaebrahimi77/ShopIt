@@ -45,20 +45,16 @@ import ProductReviews from "./components/admin/ProductReviews";
 function App() {
 
   const [stripeApiKey, setStripeApiKey] = useState("")
-  const {user, loading} = useSelector(state => state.auth)
+  // const {user, loading} = useSelector(state => state.auth)
 
   useEffect(() => {
-    store.dispatch(loadUser())
+    // store.dispatch(loadUser())
 
     async function getStripeApiKey(){
       const {data} = await axios.get("/api/v1/stripeapi")
       setStripeApiKey(data.stripeApiKey)
     }
     getStripeApiKey()
-
-  
-
-
   },[])
   return (
     <Router>
